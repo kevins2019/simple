@@ -185,7 +185,7 @@ public class TestRandomDaLeTou extends BasicDaLeTou {
 
         //平均值
         Map<String,Integer>  av5=averValue(a);
-        Integer  v5=av5.get(" 平均");
+        Integer  v5=av5.get("平均");
         boolean   y5=false;
         if(v5>=ARVESTART&&v5<=ARVEEND){
              y5=true;

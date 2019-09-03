@@ -154,8 +154,8 @@ public class BasicDaLeTou {
 
 
     //平均值
-    public static  Map<String,String> averValue(int[] a){
-        Map<String,String>  result=new HashMap<>();
+    public static  Map<String,Integer> averValue(int[] a){
+        Map<String,Integer>  result=new HashMap<>();
         int value5=0;
         int sum=0;
         for(int i=0;i<a.length;i++){

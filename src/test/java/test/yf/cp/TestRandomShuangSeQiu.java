@@ -181,6 +181,23 @@ public class TestRandomShuangSeQiu  extends BasicShuangSeQiu {
             }
         }
 
+        //平均值
+        Map<String,Integer>  av5=averValue(a);
+        Integer  v5=av5.get("平均");
+        boolean   y5=false;
+        if(v5>=ARVESTART&&v5<=ARVEEND){
+            y5=true;
+        }
+
+        //余三和
+        Map<String,Integer>  y3sum=exDelayedSum(a);
+        int   y3s=y3sum.get("余和");
+        boolean  y3=false;
+        if(y3s>=EXDSTART&&y3s<=EXDEND){
+            y3=true;
+        }
+
+
 
 
           //排除七区出号比例不合理的组合
@@ -196,7 +213,7 @@ public class TestRandomShuangSeQiu  extends BasicShuangSeQiu {
 
           //
 
-        if(sum>=n&&sum<=m&&sum2>=x&&sum2<=y&&sumAC>=z&&sumAC<=w&&kuadu>=e&&kuadu<=f&&jo&&bm&&ps&&yd&&cn){
+        if(sum>=n&&sum<=m&&sum2>=x&&sum2<=y&&sumAC>=z&&sumAC<=w&&kuadu>=e&&kuadu<=f&&jo&&bm&&ps&&yd&&y5&&y3&&cn){
             flag=true;
         }
         return  flag;

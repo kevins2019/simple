@@ -1,5 +1,7 @@
 package test.yf.cp;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,6 +28,14 @@ public class BasicShuangSeQiu {
 
     public static final int SKIPEND=30;       //跨度结束
 
+    public  static final  int ARVESTART=11;    //平均值开始
+
+    public  static final  int ARVEEND=25;    //平均值结束
+
+    public  static final  int EXDSTART=2;    //余三和开始
+
+    public  static final  int EXDEND=9;    //余三和结束
+
     //奇偶比
     public static  final String[]   JUDGEANDODD={"0:6","6:0","5:1"};   //奇偶比
 
@@ -38,6 +48,7 @@ public class BasicShuangSeQiu {
     //除3余0、1、2比
     public static final  String[]  EXPECTDELAY={"6:0:0","0:6:0","0:0:6","5:1:0","5:0:1","1:5:0","0:5:1","1:0:5","0:1:5",
             "1:1:4","4:1:1","1:4:1","3:3:0",};
+
 
     //七分区比
     public  static  final  String[] AREA={"5:1:0:0:0:0:0","5:0:1:0:0:0:0","5:0:0:1:0:0:0","5:0:0:0:1:0:0","5:0:0:0:0:1:0","5:0:0:0:0:0:1",
@@ -154,6 +165,44 @@ public class BasicShuangSeQiu {
         result.put("余3",delay0+":"+delay1+":"+delay2);
         return result;
     }
+
+    //平均值
+    public static  Map<String,Integer> averValue(int[] a){
+        Map<String,Integer>  result=new HashMap<>();
+        int value5=0;
+        int sum=0;
+        for(int i=0;i<a.length;i++){
+            sum+=a[i];
+        }
+        BigDecimal bigDecimal=new BigDecimal(sum+"");
+        BigDecimal  bigDecimal12=new BigDecimal(6+"");
+        String   sb=bigDecimal.divide(bigDecimal12,0, RoundingMode.HALF_UP).toPlainString();
+        value5=Integer.parseInt(sb);
+        result.put("平均",value5);
+        return result;
+    }
+
+
+    //除3余数和
+    public static Map<String,Integer> exDelayedSum(int [] a){
+        Map<String,Integer>  result=new HashMap<>();
+        int  sum=0;
+        for(int i=0;i<a.length;i++){
+            if(a[i]%3==0){
+                sum+=0;
+            }
+            if(a[i]==1||a[i]%3==1){
+                sum+=1;
+            }
+            if(a[i]==2||a[i]%3==2){
+                sum+=2;
+            }
+        }
+        result.put("余和",sum);
+        return result;
+    }
+
+
 
 
 
