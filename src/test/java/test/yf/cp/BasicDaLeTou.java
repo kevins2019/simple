@@ -1,45 +1,51 @@
 package test.yf.cp;
 
+import org.apache.ibatis.session.SqlSession;
+import tk.mybatis.simple.mapper.BaseMapperTest;
+import tk.mybatis.simple.mapper.CpdaleTouMapper;
+import tk.mybatis.simple.mapper.CpshuangSeQiuMapper;
+import tk.mybatis.simple.model.CpdaleTou;
+import tk.mybatis.simple.model.CpshuangSeQiu;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
-public class BasicDaLeTou {
+public class BasicDaLeTou extends BaseMapperTest {
 
 
-    public  static final  int[]   MULTIPLENUM={ 5,6,10,12,15,19,26,31};  //多个待选数范围
+    public  static final  int[]   MULTIPLENUM={ 3,4,6,7,9,10,12,18,23,26,27};  //多个待选数范围
 
     public  static final  int  GETNUM=5;    //取数个数
 
-    public  static final  int  SUMSTART=70;   //和值开始
+    public  static final  int  SUMSTART=56;   //和值开始
 
-    public static final int SUMEND=99;       //和值结束
+    public static final int SUMEND=112;       //和值结束
 
-    public static final int TAILSTART=15;       //和尾开始
+    public static final int TAILSTART=22;       //和尾开始
 
-    public static final int TAILEND=25;       //和尾结束
+    public static final int TAILEND=30;       //和尾结束
 
     public static final int ACSTART=4;       //AC开始
 
     public static final int ACEND=6;       //AC结束
 
-    public static final int SKIPSTART=18;       //跨度开始
+    public static final int SKIPSTART=9;       //跨度开始
 
-    public static final int SKIPEND=30;       //跨度结束
+    public static final int SKIPEND=24;       //跨度结束
 
-    public  static final  int ARVESTART=11;    //平均值开始
+    public  static final  int ARVESTART=10;    //平均值开始
 
-    public  static final  int ARVEEND=25;    //平均值结束
+    public  static final  int ARVEEND=22;    //平均值结束
 
-    public  static final  int EXDSTART=2;    //余三和开始
+    public  static final  int EXDSTART=1;    //余三和开始
 
-    public  static final  int EXDEND=9;    //余三和结束
+    public  static final  int EXDEND=7;    //余三和结束
 
 
 
     //奇偶比
-    public static  final String[]   JUDGEANDODD={"0:5","1:4","5:0"};   //奇偶比
+    public static  final String[]   JUDGEANDODD={"0:5","1:4","4:1","5:0"};   //奇偶比
 
     //大小比
     public  static  final String[]  BIGANDSMALL={"0:5","5:0"};
@@ -48,7 +54,7 @@ public class BasicDaLeTou {
     public  static  final String[]  PRIMESUM={"0:5","4:1","5:0"};
 
     //除3余0、1、2比
-    public static final  String[]  EXPECTDELAY={"5:0:0","0:5:0","0:0:5","4:0:1","0:4:1","1:0:4","0:1:4"};
+    public static final  String[]  EXPECTDELAY={"5:0:0","0:5:0","0:0:5","0:4:1","1:0:4","0:1:4"};
 
 
     //五区比
@@ -218,6 +224,31 @@ public class BasicDaLeTou {
         }
         resultCn.put("区比",firstArea+":"+twoArea+":"+threeArea+":"+fourArea+":"+fiveArea);
         return resultCn;
+    }
+
+
+    public static  Boolean getDaleTou(int[] a){
+        boolean  flag=true;
+        init();
+        SqlSession sqlSession=getSqlSession();
+        CpdaleTouMapper cpdaleTouMapper=sqlSession.getMapper(CpdaleTouMapper.class);
+        List<CpdaleTou> lists=cpdaleTouMapper.selectAll();
+        List<String>    pro=new ArrayList<>();
+        for (int i =0;i<lists.size();i++){
+            CpdaleTou cpdaleTou=lists.get(i);
+            pro.add(cpdaleTou.getProLottery());
+        }
+        String sb= Arrays.toString(a).replace(" ","");
+
+        for(int i=0;i<pro.size();i++){
+            String  source="["+pro.get(i)+"]";
+            if(sb.equals(source)){
+                flag=false;
+            }
+
+        }
+
+        return  flag;
     }
 
 

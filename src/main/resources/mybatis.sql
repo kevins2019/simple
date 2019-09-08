@@ -73,6 +73,20 @@ create table test3(
 
 
 
+create  table cp_shuangseqiu(
+`id`  bigint  not null  auto_increment comment 'id',
+`pahseNum`  varchar(30) comment '第几期',
+`red_lottery`   varchar(10) comment   '红色球',
+`bule_lottery`  varchar(2)  comment  '蓝色球',
+primary key(`id`)
+);
+create  table  cp_daletou(
+`id` bigint not null  auto_increment  comment  'id',
+`pahseNum`  varchar(30) comment '第几期',
+`pro_lottery` varchar(10) comment '前区',
+`back_lettery`  varchar(2) comment  '后区',
+primary  key(`id`)
+);
 
 
 

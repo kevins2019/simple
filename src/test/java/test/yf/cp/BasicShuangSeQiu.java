@@ -1,49 +1,53 @@
 package test.yf.cp;
 
+import org.apache.ibatis.session.SqlSession;
+import tk.mybatis.simple.mapper.BaseMapperTest;
+import tk.mybatis.simple.mapper.CpshuangSeQiuMapper;
+import tk.mybatis.simple.model.CpshuangSeQiu;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
-public class BasicShuangSeQiu {
+public class BasicShuangSeQiu  extends BaseMapperTest {
 
 
-    public  static final  int[]   MULTIPLENUM={ 3,5,6,8,10,12,15,16,20,30,32};  //多个待选数范围
+    public  static final  int[]   MULTIPLENUM={6,7,9,10,11,12,14,15,21,22,24,25,27,28,30};  //多个待选数范围
 
     public  static final  int  GETNUM=6;    //取数个数
 
-    public  static final  int  SUMSTART=88;   //和值开始
+    public  static final  int  SUMSTART=81;   //和值开始
 
-    public static final int SUMEND=123;       //和值结束
+    public static final int SUMEND=107;       //和值结束
 
-    public static final int TAILSTART=19;       //和尾开始
+    public static final int TAILSTART=18;       //和尾开始
 
-    public static final int TAILEND=21;       //和尾结束
+    public static final int TAILEND=27;       //和尾结束
 
     public static final int ACSTART=6;       //AC开始
 
-    public static final int ACEND=10;       //AC结束
+    public static final int ACEND=9;       //AC结束
 
-    public static final int SKIPSTART=23;       //跨度开始
+    public static final int SKIPSTART=22;       //跨度开始
 
-    public static final int SKIPEND=30;       //跨度结束
+    public static final int SKIPEND=32;       //跨度结束
 
-    public  static final  int ARVESTART=11;    //平均值开始
+    public  static final  int ARVESTART=14;    //平均值开始
 
-    public  static final  int ARVEEND=25;    //平均值结束
+    public  static final  int ARVEEND=18;    //平均值结束
 
-    public  static final  int EXDSTART=2;    //余三和开始
+    public  static final  int EXDSTART=3;    //余三和开始
 
-    public  static final  int EXDEND=9;    //余三和结束
+    public  static final  int EXDEND=6;    //余三和结束
 
     //奇偶比
-    public static  final String[]   JUDGEANDODD={"0:6","6:0","5:1"};   //奇偶比
+    public static  final String[]   JUDGEANDODD={"0:6","6:0","5:1","4:2"};   //奇偶比
 
     //大小比
-    public  static  final String[]  BIGANDSMALL={"0:6","1:5","5:1","6:0"};
+    public  static  final String[]  BIGANDSMALL={"0:6","1:5","5:1","4:2","6:0"};
 
     //质合比
-    public  static  final String[]  PRIMESUM={"0:6","5:1","6:0"};
+    public  static  final String[]  PRIMESUM={"0:6","5:1","4:2","6:0"};
 
     //除3余0、1、2比
     public static final  String[]  EXPECTDELAY={"6:0:0","0:6:0","0:0:6","5:1:0","5:0:1","1:5:0","0:5:1","1:0:5","0:1:5",
@@ -51,7 +55,8 @@ public class BasicShuangSeQiu {
 
 
     //七分区比
-    public  static  final  String[] AREA={"5:1:0:0:0:0:0","5:0:1:0:0:0:0","5:0:0:1:0:0:0","5:0:0:0:1:0:0","5:0:0:0:0:1:0","5:0:0:0:0:0:1",
+    //public  static  final  String[] AREA={"1:1:0:2:1:1:0","1:0:0:2:1:1:1",};
+   public  static  final  String[] AREA={"5:1:0:0:0:0:0","5:0:1:0:0:0:0","5:0:0:1:0:0:0","5:0:0:0:1:0:0","5:0:0:0:0:1:0","5:0:0:0:0:0:1",
             "1:5:0:0:0:0:0","0:5:1:0:0:0:0","0:5:0:1:0:0:0","0:5:0:0:1:0:0","0:5:0:0:0:1:0","0:5:0:0:0:0:1",
             "1:0:5:0:0:0:0","0:1:5:0:0:0:0","0:0:5:1:0:0:0","0:0:5:0:1:0:0","0:0:5:0:0:1:0","0:0:5:0:0:0:1",
             "1:0:0:5:0:0:0","0:1:0:5:0:0:0","0:0:1:5:0:0:0","0:0:0:5:1:0:0","0:0:0:5:0:1:0","0:0:0:5:0:0:1",
@@ -244,6 +249,30 @@ public class BasicShuangSeQiu {
     }
 
 
+
+    public static  Boolean getCompareQiu(int[] a){
+      boolean  flag=true;
+       init();
+        SqlSession  sqlSession=getSqlSession();
+        CpshuangSeQiuMapper  cpshuangSeQiuMapper=sqlSession.getMapper(CpshuangSeQiuMapper.class);
+        List<CpshuangSeQiu>  lists=cpshuangSeQiuMapper.selectAll();
+        List<String>    cpRed=new ArrayList<>();
+        for (int i =0;i<lists.size();i++){
+             CpshuangSeQiu cpshuangSeQiu=lists.get(i);
+             cpRed.add(cpshuangSeQiu.getRedLottery());
+        }
+        String sb= Arrays.toString(a).replace(" ","");
+
+        for(int i=0;i<cpRed.size();i++){
+            String  source="["+cpRed.get(i)+"]";
+            if(sb.equals(source)){
+                flag=false;
+            }
+
+        }
+
+        return  flag;
+    }
 
 
 

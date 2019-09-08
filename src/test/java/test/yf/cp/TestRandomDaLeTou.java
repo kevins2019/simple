@@ -97,15 +97,18 @@ public class TestRandomDaLeTou extends BasicDaLeTou {
             int[] temp = (int[]) list.get(i);
             //各参数说明  -------和值范围(n,m)--和尾范围(x,y)--AC范围(z,w) --跨度(e,f) 排奇偶比、大小比、区比见方法里
             if(getSumFlag(temp,SUMSTART,SUMEND,TAILSTART,TAILEND,ACSTART,ACEND,SKIPSTART,SKIPEND)){
-                for (int j = 0; j < temp.length; j++) {
-                    java.text.DecimalFormat df = new java.text.DecimalFormat("00");//将输出格式化
-                    System.out.print(df.format(temp[j]) + " ");
+                boolean bf=getDaleTou(temp);
+                if(bf) {
+                    for (int j = 0; j < temp.length; j++) {
+                        java.text.DecimalFormat df = new java.text.DecimalFormat("00");//将输出格式化
+                        System.out.print(df.format(temp[j]) + " ");
+                    }
+                    System.out.println();
+                    num++;
+                    String st1 = Arrays.toString(temp).replace("[", "");
+                    String parseTemp = st1.replace("]", "");
+                    saveTxt("D:\\cp.txt", parseTemp + "+07 08");
                 }
-                System.out.println();
-                num++;
-                String  st1=Arrays.toString(temp).replace("[","");
-                      String   parseTemp=st1.replace("]","");
-               saveTxt("D:\\cp.txt", parseTemp+"+07 08");
             }
 
         }

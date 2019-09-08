@@ -93,21 +93,29 @@ public class TestRandomShuangSeQiu  extends BasicShuangSeQiu {
         int  num=0;
         System.out.println("具体组合结果为:");
         for (int i = 0; i < list.size(); i++) {
-            int[] temp = (int[]) list.get(i);
-            //各参数说明  -------和值范围(n,m)--和尾范围(x,y)--AC范围(z,w) --跨度(e,f) 排奇偶比、大小比、区比见方法里
-            if(getSumFlag(temp,SUMSTART,SUMEND,TAILSTART,TAILEND,ACSTART,ACEND,SKIPSTART,SKIPEND)){
-                for (int j = 0; j < temp.length; j++) {
-                    java.text.DecimalFormat df = new java.text.DecimalFormat("00");//将输出格式化
-                    System.out.print(df.format(temp[j]) + " ");
-                }
-                System.out.println();
-                num++;
-                String  st1=Arrays.toString(temp).replace("[","");
-                      String   parseTemp=st1.replace("]","");
-               saveTxt("D:\\cp.txt", parseTemp+"+6");
-            }
+           // if(list.get(i).toString().equals("1,5,16,17,18,24")) {
+              int[]  temp = (int[]) list.get(i);
+            //int[]  temp ={1,5,16,17,18,24};
+            //去除往期已开号码
 
-        }
+            //各参数说明  -------和值范围(n,m)--和尾范围(x,y)--AC范围(z,w) --跨度(e,f) 排奇偶比、大小比、区比见方法里
+
+               if (getSumFlag(temp, SUMSTART, SUMEND, TAILSTART, TAILEND, ACSTART, ACEND, SKIPSTART, SKIPEND)) {
+                   boolean  bf=getCompareQiu(temp);
+                   if(bf) {
+                       for (int j = 0; j < temp.length; j++) {
+                           java.text.DecimalFormat df = new java.text.DecimalFormat("00");//将输出格式化
+                           System.out.print(df.format(temp[j]) + " ");
+                       }
+                       System.out.println();
+                       num++;
+                       String st1 = Arrays.toString(temp).replace("[", "");
+                       String parseTemp = st1.replace("]", "");
+                       saveTxt("D:\\cp.txt", parseTemp + "+6");
+                   }
+               }
+           }
+
 
         return  num;
     }
@@ -213,7 +221,7 @@ public class TestRandomShuangSeQiu  extends BasicShuangSeQiu {
 
           //
 
-        if(sum>=n&&sum<=m&&sum2>=x&&sum2<=y&&sumAC>=z&&sumAC<=w&&kuadu>=e&&kuadu<=f&&jo&&bm&&ps&&yd&&y5&&y3&&cn){
+        if(sum>=n&&sum<=m&&sum2>=x&&sum2<=y&&sumAC>=z&&sumAC<=w&&kuadu>=e&&kuadu<=f&&jo&&bm&&ps&&yd&&y3&&y5&&cn){
             flag=true;
         }
         return  flag;

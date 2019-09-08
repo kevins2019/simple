@@ -11,7 +11,7 @@ import java.io.Reader;
 
 public class BaseMapperTest {
 
-    private  static SqlSessionFactory  sqlSessionFactory;
+    private    static SqlSessionFactory  sqlSessionFactory;
 
     @BeforeClass
     public static  void init(){
@@ -24,7 +24,7 @@ public class BaseMapperTest {
         }
     }
 
-    public  SqlSession  getSqlSession(){
+    public static SqlSession  getSqlSession(){
      return   sqlSessionFactory.openSession();
     }
 }
