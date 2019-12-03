@@ -99,15 +99,23 @@ public class TestRandomDaLeTou extends BasicDaLeTou {
             if(getSumFlag(temp,SUMSTART,SUMEND,TAILSTART,TAILEND,ACSTART,ACEND,SKIPSTART,SKIPEND)){
                 boolean bf=getDaleTou(temp);
                 if(bf) {
-                    for (int j = 0; j < temp.length; j++) {
-                        java.text.DecimalFormat df = new java.text.DecimalFormat("00");//将输出格式化
-                        System.out.print(df.format(temp[j]) + " ");
+                    if(getLimitNum(temp,BasicDaLeTou.OKAPPOINT)&&getFirstKD(BasicDaLeTou.FIRSTKD,temp)&&getSecondKD(BasicDaLeTou.SECONDKD,temp)&&getThirdKD(BasicDaLeTou.THIRDKD,temp)&&getFiveKD(BasicDaLeTou.FIVEKD,temp)) {
+                        for (int j = 0; j < temp.length; j++) {
+                            java.text.DecimalFormat df = new java.text.DecimalFormat("00");//将输出格式化
+                            System.out.print(df.format(temp[j]) + " ");
+                        }
+                        System.out.println();
+                        num++;
+                        String st1 = Arrays.toString(temp).replace("[", "");
+                        String parseTemp = st1.replace("]", "");
+                        String back = "+01 09";
+                        if (num % 5 == 0) {
+                            saveTxt("D:\\cp.txt", parseTemp + back + "\r\n---------------");
+                        } else {
+                            saveTxt("D:\\cp.txt", parseTemp + back);
+                        }
                     }
-                    System.out.println();
-                    num++;
-                    String st1 = Arrays.toString(temp).replace("[", "");
-                    String parseTemp = st1.replace("]", "");
-                    saveTxt("D:\\cp.txt", parseTemp + "+07 08");
+
                 }
             }
 

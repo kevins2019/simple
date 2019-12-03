@@ -1,5 +1,7 @@
 package test.yf.cp;
 
+import io.swagger.models.auth.In;
+import org.apache.commons.lang3.ArrayUtils;
 import org.junit.Test;
 
 import java.io.*;
@@ -11,6 +13,9 @@ public class TestRandom3D extends Basic3D {
     @Test
     public void   getNum3d(){
           List<Integer[]> list=getList3d();
+          for (Integer[] a:list){
+              System.out.print(ArrayUtils.toString(a));
+          }
 //        List<Integer[]> list=new ArrayList<Integer[]>();
 //        Integer[]  ss=new Integer[]{5,7,5};
 //        list.add(ss);
@@ -20,6 +25,7 @@ public class TestRandom3D extends Basic3D {
 //        for(Integer[] i:result){
 //            System.out.println(Arrays.toString(i));
 //        }
+        Integer[]  bt=new Integer[list.size()];
         for(int i=0;i<list.size();i++){
            // System.out.println(Arrays.toString(list.get(i)));
             boolean  sum=getSum3d(list.get(i),SUMSTART,SUMEND);
@@ -70,15 +76,19 @@ public class TestRandom3D extends Basic3D {
                 ys=true;
             }
 
+
+
             if(sum&&sumend&&ac&&kd&&jdood&&bigsm&&prisum&&y3&&avg&&ys){
-                result.add(list.get(i));
+                System.out.print(i);
+                bt[i]=i;
+                //result.add(list.get(i));
             }
 
         }
 
-        Set<Integer[]>  set=new HashSet<>(result);
+        //Set<Integer[]>  set=new HashSet<>(result);
         List<Integer[]> over=new ArrayList<>();
-        for(Integer[] i:set){
+        for(Integer[] i:result){
             if(!over.contains(i)) {
                 over.add(i);
             }
@@ -86,7 +96,11 @@ public class TestRandom3D extends Basic3D {
 
         System.out.println("**********筛选出：************"+over.size());
         for(Integer[] as:over){
-            System.out.println(Arrays.toString(as).replace(" ",""));
+            System.out.println(Arrays.toString(as).replace(" ","").replace("[","").replace("]",""));
+        }
+
+        for (int p=0;p<bt.length;p++){
+            System.out.println(Arrays.toString(list.get(bt[p])));
         }
 
     }

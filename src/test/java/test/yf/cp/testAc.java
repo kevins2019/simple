@@ -85,6 +85,7 @@ public class testAc extends BaseMapperTest {
         System.out.println("*************质合比********************"+primeSum(exd));
         System.out.println("*************除3后0,1,2,比********************"+expectDelayed(exd));
         System.out.println("*************区域比********************"+getArea(exd));
+        System.out.println("***********avg**************"+getAvg().toString());
         ArrayList<int[]>  pj=new ArrayList<int[]>();
        pj.add(p1);pj.add(p2);pj.add(p3);pj.add(p4);pj.add(p5);
         pj.add(p6);pj.add(p7);pj.add(p8);pj.add(p9);pj.add(p10);
@@ -386,6 +387,41 @@ public static  Map<String,Integer> averValue(int[] a){
     }
 
 
+
+    public static List<Integer>  getAvg(){
+        List<Integer>  cc=new ArrayList<>();
+        init();
+        SqlSession sqlSession=getSqlSession();
+        CpshuangSeQiuMapper cpshuangSeQiuMapper=sqlSession.getMapper(CpshuangSeQiuMapper.class);
+        List<CpshuangSeQiu>  lists=cpshuangSeQiuMapper.selectAll();
+        List<String>    cpRed=new ArrayList<>();
+        for (int i=0;i<lists.size();i++){
+            CpshuangSeQiu  cp=lists.get(i);
+            cc.add(getStringtoInteger(cp.getRedLottery()));
+        }
+
+
+        return cc;
+    }
+
+
+    public static Integer  getStringtoInteger(String  str){
+        int  avg=0;
+        String[] temp=str.replace(" ","").split(",");
+        int  sum=0;
+        for(int i=0;i<temp.length;i++){
+              sum+=Integer.parseInt(temp[i]);
+        }
+        BigDecimal  b1=new BigDecimal(sum+"");
+        BigDecimal  b2=new BigDecimal(6+"");
+        String  result=b1.divide(b2,0,RoundingMode.HALF_UP).toPlainString();
+        avg=Integer.parseInt(result);
+
+
+
+
+        return  avg;
+    }
 
 
 }

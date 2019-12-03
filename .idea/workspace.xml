@@ -2,13 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="099ec463-1085-49fe-8cad-ce64a500d13d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/CpdaleTouMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/CpshuangSeQiuMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/CpdaleTou.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/CpshuangSeQiu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/CpdaleTouMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/CpshuangSeQiuMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/BaseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/controller/CpdaletouController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/dao/CpSelect5Dao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/dao/DaletouDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/dao/daoImpl/BaseGetSqlSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/dao/daoImpl/CpselectImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/dao/daoImpl/DaletouImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/Cpselect5Mapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/Cpselect5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/service/CpSelect5Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/service/CpdaletouService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/service/serviceImpl/CpSelect5ServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/service/serviceImpl/CpdaletouServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/Cpselect5Mapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/CpshuangSeQiuMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/CpshuangSeQiuMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/CpdaleTou.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/CpdaleTou.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/test/yf/cp/Basic3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/yf/cp/Basic3D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/test/yf/cp/BasicDaLeTou.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/yf/cp/BasicDaLeTou.java" afterDir="false" />
@@ -17,7 +31,6 @@
       <change beforePath="$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandomDaLeTou.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandomDaLeTou.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandomShuangSeQiu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandomShuangSeQiu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/test/yf/cp/testAc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/test/yf/cp/testAc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tk/mybatis/simple/mapper/BaseMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tk/mybatis/simple/mapper/BaseMapperTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -45,48 +58,84 @@
     <session id="326351661">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="27" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.11" value="5" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.130" value="1" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.160" value="1" />
-          <entry key="project.open.time.17" value="1" />
-          <entry key="project.open.time.19" value="1" />
+          <entry key="project.open.time.17" value="2" />
+          <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.19" value="2" />
+          <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.24" value="1" />
-          <entry key="project.open.time.27" value="1" />
+          <entry key="project.open.time.27" value="3" />
           <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.31" value="1" />
+          <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.38" value="1" />
+          <entry key="project.open.time.41" value="1" />
+          <entry key="project.open.time.43" value="1" />
           <entry key="project.open.time.44" value="1" />
+          <entry key="project.open.time.45" value="2" />
           <entry key="project.open.time.46" value="2" />
-          <entry key="project.open.time.50" value="1" />
-          <entry key="project.open.time.52" value="2" />
-          <entry key="project.open.time.53" value="2" />
+          <entry key="project.open.time.47" value="1" />
+          <entry key="project.open.time.48" value="1" />
+          <entry key="project.open.time.49" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.50" value="4" />
+          <entry key="project.open.time.52" value="3" />
+          <entry key="project.open.time.53" value="3" />
+          <entry key="project.open.time.54" value="1" />
+          <entry key="project.open.time.55" value="1" />
           <entry key="project.open.time.56" value="1" />
-          <entry key="project.open.time.59" value="1" />
-          <entry key="project.open.time.60" value="7" />
-          <entry key="project.open.time.64" value="3" />
+          <entry key="project.open.time.57" value="2" />
+          <entry key="project.open.time.58" value="1" />
+          <entry key="project.open.time.59" value="2" />
+          <entry key="project.open.time.60" value="8" />
+          <entry key="project.open.time.61" value="1" />
+          <entry key="project.open.time.62" value="1" />
+          <entry key="project.open.time.63" value="1" />
+          <entry key="project.open.time.64" value="4" />
           <entry key="project.open.time.65" value="2" />
-          <entry key="project.open.time.68" value="2" />
-          <entry key="project.open.time.71" value="1" />
-          <entry key="project.opened" value="34" />
+          <entry key="project.open.time.67" value="2" />
+          <entry key="project.open.time.68" value="3" />
+          <entry key="project.open.time.69" value="3" />
+          <entry key="project.open.time.70" value="1" />
+          <entry key="project.open.time.71" value="2" />
+          <entry key="project.open.time.72" value="1" />
+          <entry key="project.open.time.75" value="1" />
+          <entry key="project.open.time.76" value="1" />
+          <entry key="project.open.time.78" value="1" />
+          <entry key="project.open.time.79" value="2" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.open.time.81" value="2" />
+          <entry key="project.open.time.98" value="1" />
+          <entry key="project.opened" value="95" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="13" />
-          <entry key="java" value="23238" />
+          <entry key="java" value="31894" />
           <entry key="properties" value="237" />
-          <entry key="sql" value="3204" />
-          <entry key="txt" value="46" />
-          <entry key="xml" value="4752" />
+          <entry key="sql" value="4005" />
+          <entry key="txt" value="75" />
+          <entry key="xml" value="5157" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="23238" />
-          <entry key="PLAIN_TEXT" value="59" />
+          <entry key="JAVA" value="31894" />
+          <entry key="PLAIN_TEXT" value="88" />
           <entry key="Properties" value="237" />
-          <entry key="SQL" value="3335" />
-          <entry key="XML" value="4621" />
+          <entry key="SQL" value="4136" />
+          <entry key="XML" value="5026" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -101,7 +150,7 @@
           <entry key="aa3453aa36c91102be4bab67332f1579a91c9c" value="1" />
           <entry key="b145cbb08a52a7994d2a47160923c8b4185cb5" value="1" />
           <entry key="cdc539492a898765e455969fd9fd630db53f52" value="1" />
-          <entry key="class" value="36" />
+          <entry key="class" value="44" />
           <entry key="d56c818807b548eb765170bbae32ed0d7da92d" value="1" />
           <entry key="d6ebd4805981b8400db3e3291c74a743fef9a824" value="1" />
           <entry key="e75cd6aa8790ed5a385aef20079b1d15a56fff3e" value="1" />
@@ -109,21 +158,21 @@
           <entry key="fc712cc2b68e21e1c0bc0df577a25eee7c48bf" value="1" />
           <entry key="fxml" value="1" />
           <entry key="iml" value="2" />
-          <entry key="java" value="136" />
-          <entry key="properties" value="3" />
-          <entry key="sql" value="6" />
-          <entry key="xml" value="41" />
+          <entry key="java" value="272" />
+          <entry key="properties" value="4" />
+          <entry key="sql" value="10" />
+          <entry key="xml" value="55" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="36" />
+          <entry key="CLASS" value="44" />
           <entry key="IDEA_MODULE" value="2" />
-          <entry key="JAVA" value="136" />
+          <entry key="JAVA" value="272" />
           <entry key="PLAIN_TEXT" value="14" />
-          <entry key="Properties" value="3" />
-          <entry key="SQL" value="6" />
-          <entry key="XML" value="43" />
+          <entry key="Properties" value="4" />
+          <entry key="SQL" value="10" />
+          <entry key="XML" value="57" />
         </counts>
       </usages-collector>
     </session>
@@ -134,19 +183,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandomShuangSeQiu.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/BasicDaLeTou.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="521">
-              <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandomDaLeTou.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="96" column="45" lean-forward="true" selection-start-line="96" selection-start-column="45" selection-end-line="96" selection-end-column="45" />
+            <state relative-caret-position="407">
+              <caret line="420" column="5" lean-forward="true" selection-start-line="354" selection-end-line="420" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -154,68 +194,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/BasicShuangSeQiu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="275" lean-forward="true" selection-start-line="252" selection-start-column="4" selection-end-line="275" />
+            <state relative-caret-position="19">
+              <caret line="444" column="26" lean-forward="true" selection-start-line="444" selection-start-column="26" selection-end-line="444" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandomDaLeTou.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="92" column="19" selection-start-line="92" selection-start-column="19" selection-end-line="92" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandomShuangSeQiu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="125" column="272" selection-start-line="125" selection-start-column="272" selection-end-line="125" selection-end-column="272" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/CpdaleTou.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="30" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="30" />
-              <folding>
-                <element signature="e#198#199#0" expanded="true" />
-                <element signature="e#223#224#0" expanded="true" />
-                <element signature="e#257#258#0" expanded="true" />
-                <element signature="e#285#286#0" expanded="true" />
-                <element signature="e#320#321#0" expanded="true" />
-                <element signature="e#351#352#0" expanded="true" />
-                <element signature="e#399#400#0" expanded="true" />
-                <element signature="e#439#440#0" expanded="true" />
-                <element signature="e#476#477#0" expanded="true" />
-                <element signature="e#509#510#0" expanded="true" />
-                <element signature="e#561#562#0" expanded="true" />
-                <element signature="e#605#606#0" expanded="true" />
-                <element signature="e#643#644#0" expanded="true" />
-                <element signature="e#677#678#0" expanded="true" />
-                <element signature="e#731#732#0" expanded="true" />
-                <element signature="e#777#778#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/BasicDaLeTou.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2136">
-              <caret line="102" column="22" lean-forward="true" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/Basic3D.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="106" column="35" selection-start-line="106" selection-start-column="35" selection-end-line="106" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandom3D.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="101" column="38" lean-forward="true" selection-start-line="101" selection-start-column="38" selection-end-line="101" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -226,9 +227,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Interface" />
         <option value="mapper" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -243,6 +244,8 @@
       <find>BasicShuangSeQiu</find>
       <find>kuadu</find>
       <find>result[2]:16</find>
+      <find>getSumFlag</find>
+      <find>printVir</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -251,28 +254,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/Country.java" />
-        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/CountryMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/SysUser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/SysUserRole.java" />
-        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/SysRolePrivilege.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/CountryMapper.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/tk/mybatis/simple.mapper/CountryMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/tk/mybatis/simple.mapper/UserMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/CountryMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/CountryMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/SysPrivilege.java" />
-        <option value="$PROJECT_DIR$/src/test/java/tk/mybatis/simple/mapper/CountryMapperTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/SysRole.java" />
-        <option value="$PROJECT_DIR$/src/test/java/tk/mybatis/simple/mapper/MyMapperProxy.java" />
-        <option value="$PROJECT_DIR$/src/test/java/tk/mybatis/simple/mapper/MapperProxyTest.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/RoleMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/PrivilegeMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/RolePrivilegeMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/UserRoleMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/RoleMapper.java" />
@@ -286,21 +267,44 @@
         <option value="$PROJECT_DIR$/src/test/java/tk/mybatis/simple/mapper/TestRandom.java" />
         <option value="$PROJECT_DIR$/src/test/java/test/yf/cp/test.java" />
         <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/UserMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis.sql" />
         <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/CpshuangSeQiu.java" />
         <option value="$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/CpshuangSeQiuMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/CpshuangSeQiuMapper.java" />
         <option value="$PROJECT_DIR$/src/test/java/tk/mybatis/simple/mapper/BaseMapperTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandomShuangSeQiu.java" />
-        <option value="$PROJECT_DIR$/src/test/java/test/yf/cp/BasicShuangSeQiu.java" />
-        <option value="$PROJECT_DIR$/src/test/java/test/yf/cp/testAc.java" />
-        <option value="$PROJECT_DIR$/src/test/java/test/yf/cp/Basic3D.java" />
-        <option value="$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandom3D.java" />
-        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/CpdaleTou.java" />
         <option value="$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/CpdaleTouMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/CpdaleTouMapper.java" />
-        <option value="$PROJECT_DIR$/src/test/java/test/yf/cp/BasicDaLeTou.java" />
+        <option value="$PROJECT_DIR$/src/test/java/test/yf/cp/testAc.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/test/yf/cp/jmeterTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/dao/UserDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/dao/BaseGetSqlSession.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/dao/daoImpl/BaseGetSqlSession.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/dao/daoImpl/DaletouImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/dao/DaletouDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/CpdaleTou.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/service/CpdaletouService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/service/serviceImpl/CpdaletouServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/controller/BaseController.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/SwaggerConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/BaseController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/controller/CpdaletouController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/Cpselect5.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/Cpselect5Mapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/service/CpSelect5Service.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/dao/CpSelect5Dao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/dao/daoImpl/CpselectImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/Cpselect5Mapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/service/serviceImpl/CpSelect5ServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/controller/CpSelect5Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/CpshuangSeQiuMapper.java" />
+        <option value="$PROJECT_DIR$/src/test/java/test/yf/cp/Basic3D.java" />
+        <option value="$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandom3D.java" />
+        <option value="$PROJECT_DIR$/src/test/java/test/yf/cp/testDaBackendAc.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis.sql" />
         <option value="$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandomDaLeTou.java" />
+        <option value="$PROJECT_DIR$/src/test/java/test/yf/cp/BasicDaLeTou.java" />
+        <option value="$PROJECT_DIR$/src/test/java/test/yf/cp/BasicShuangSeQiu.java" />
+        <option value="$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandomShuangSeQiu.java" />
       </list>
     </option>
   </component>
@@ -346,6 +350,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -449,7 +454,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -482,92 +486,6 @@
               <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="tk" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="simple" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="simple" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tk" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="mybatis" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="simple" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="simple" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tk" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="mybatis" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="simple" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="simple" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="simple" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tk" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="mybatis" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="simple" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="mapper" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="simple" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="simple" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tk" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="mybatis" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="simple" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="model" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="simple" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="simple" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="simple" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="simple" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tk" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="simple" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="simple" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tk" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="mybatis" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="simple" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="simple" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tk" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="mybatis" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="simple" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="simple" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="simple" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tk" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="mybatis" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="simple" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="mapper" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="simple" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -609,44 +527,6 @@
               <item name="yf" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="cp" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
-            <path>
-              <item name="simple" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="simple" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tk" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="simple" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="simple" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tk" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="mybatis" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="simple" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="simple" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tk" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="mybatis" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="simple" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="simple" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="simple" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="tk" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="mybatis" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="simple" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="mapper" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -654,27 +534,37 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567963974794" />
-    <property name="last_opened_file_path" value="D:/git/local" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575306766580" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.47209302" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Spring EL" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="tk.mybatis.simple" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\dev\simple\src\main\resources\tk\mybatis\simple\mapper" />
+      <recent name="D:\dev\simple\src\main\resources\tk\mybatis\simple.mapper" />
+      <recent name="D:\dev\simple\src\main\java\tk\mybatis\simple\mapper" />
       <recent name="D:\dev\simple\src\main\resources\mapper" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="tk.mybatis.simple.mapper" />
+      <recent name="tk.mybatis.simple.model" />
       <recent name="test.yf.cp" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\dev\simple\src\main\resources\tk\mybatis\simple.mapper" />
-      <recent name="D:\dev\simple\src\main\java\tk\mybatis\simple\mapper" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\dev\simple\src\main\resources\mapper" />
     </key>
   </component>
@@ -691,8 +581,8 @@
     </option>
   </component>
   <component name="RunManager" selected="JUnit.TestRandomDaLeTou">
-    <configuration name="testAc" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test.yf.cp.testAc" />
+    <configuration name="testDaBackendAc" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.yf.cp.testDaBackendAc" />
       <module name="simple" />
       <extension name="coverage">
         <pattern>
@@ -748,7 +638,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestRandomShuangSeQiu" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestRandomDaLeTou.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="simple" />
       <extension name="coverage">
         <pattern>
@@ -757,25 +647,27 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test.yf.cp" />
-      <option name="MAIN_CLASS_NAME" value="test.yf.cp.TestRandomShuangSeQiu" />
+      <option name="MAIN_CLASS_NAME" value="test.yf.cp.TestRandomDaLeTou" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.TestRandomShuangSeQiu" />
-      <item itemvalue="Application.testAc" />
       <item itemvalue="JUnit.TestRandomDaLeTou" />
       <item itemvalue="JUnit.TestRandom3D.getNum3d" />
       <item itemvalue="JUnit.TestRandom3D" />
+      <item itemvalue="JUnit.TestRandomDaLeTou.test" />
+      <item itemvalue="Application.testDaBackendAc" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.TestRandomDaLeTou" />
+        <item itemvalue="JUnit.TestRandomDaLeTou.test" />
+        <item itemvalue="Application.testDaBackendAc" />
         <item itemvalue="JUnit.TestRandom3D.getNum3d" />
         <item itemvalue="JUnit.TestRandom3D" />
-        <item itemvalue="Application.testAc" />
-        <item itemvalue="JUnit.TestRandomShuangSeQiu" />
       </list>
     </recent_temporary>
   </component>
@@ -822,7 +714,68 @@
       <workItem from="1567678813211" duration="280000" />
       <workItem from="1567684354048" duration="10544000" />
       <workItem from="1567835123987" duration="4188000" />
-      <workItem from="1567913943276" duration="30267000" />
+      <workItem from="1567913943276" duration="30697000" />
+      <workItem from="1568018778844" duration="15427000" />
+      <workItem from="1568113931195" duration="9799000" />
+      <workItem from="1568185539171" duration="332000" />
+      <workItem from="1568198518244" duration="2688000" />
+      <workItem from="1568272407946" duration="11087000" />
+      <workItem from="1568300369112" duration="2178000" />
+      <workItem from="1568336274601" duration="2378000" />
+      <workItem from="1568471127982" duration="2973000" />
+      <workItem from="1568521362007" duration="8812000" />
+      <workItem from="1568600912898" duration="6454000" />
+      <workItem from="1568642759131" duration="3649000" />
+      <workItem from="1568691286661" duration="23023000" />
+      <workItem from="1568789169454" duration="1360000" />
+      <workItem from="1568804539493" duration="2222000" />
+      <workItem from="1568817702337" duration="4436000" />
+      <workItem from="1568856741097" duration="11084000" />
+      <workItem from="1568992291579" duration="4526000" />
+      <workItem from="1569044745475" duration="12872000" />
+      <workItem from="1569078334185" duration="11416000" />
+      <workItem from="1569159335619" duration="3939000" />
+      <workItem from="1569207412679" duration="3168000" />
+      <workItem from="1569234861277" duration="4938000" />
+      <workItem from="1569314186871" duration="3111000" />
+      <workItem from="1569425834379" duration="10721000" />
+      <workItem from="1569496386606" duration="1636000" />
+      <workItem from="1569592600376" duration="2878000" />
+      <workItem from="1569646636849" duration="3785000" />
+      <workItem from="1569726114837" duration="4857000" />
+      <workItem from="1569812890809" duration="595000" />
+      <workItem from="1570163262444" duration="3295000" />
+      <workItem from="1570173629658" duration="3326000" />
+      <workItem from="1570250163386" duration="1829000" />
+      <workItem from="1570944275496" duration="5651000" />
+      <workItem from="1571997939155" duration="613000" />
+      <workItem from="1572160851329" duration="4030000" />
+      <workItem from="1572174373770" duration="1234000" />
+      <workItem from="1572230806780" duration="593000" />
+      <workItem from="1572260735926" duration="2482000" />
+      <workItem from="1572524629340" duration="1190000" />
+      <workItem from="1572601733338" duration="5658000" />
+      <workItem from="1572666298387" duration="14342000" />
+      <workItem from="1572845920314" duration="595000" />
+      <workItem from="1573049049759" duration="347000" />
+      <workItem from="1573812610041" duration="2157000" />
+      <workItem from="1573912531412" duration="640000" />
+      <workItem from="1573988452194" duration="589000" />
+      <workItem from="1574090305680" duration="2281000" />
+      <workItem from="1574152620390" duration="1088000" />
+      <workItem from="1574217409652" duration="598000" />
+      <workItem from="1574259975758" duration="595000" />
+      <workItem from="1574504729196" duration="2416000" />
+      <workItem from="1574677686007" duration="3292000" />
+      <workItem from="1574698622938" duration="670000" />
+      <workItem from="1574744350270" duration="930000" />
+      <workItem from="1574995339870" duration="15995000" />
+      <workItem from="1575121583197" duration="3329000" />
+      <workItem from="1575195566256" duration="602000" />
+      <workItem from="1575208133470" duration="2324000" />
+      <workItem from="1575282523709" duration="1051000" />
+      <workItem from="1575305595239" duration="1764000" />
+      <workItem from="1575345828681" duration="1593000" />
     </task>
     <task id="LOCAL-00001" summary="all  commit">
       <created>1567449016481</created>
@@ -852,43 +805,50 @@
       <option name="project" value="LOCAL" />
       <updated>1567501169535</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="insert 3d,daletou sql support">
+      <created>1567964097506</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1567964097506</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestRandom3D_getNum3d - 2019.09.08 at 22h 41m 40s.xml">
-      <configuration name="TestRandom3D.getNum3d" configurationId="JUnit" />
+    <history-entry file="TestRandomDaLeTou_test - 2019.11.29 at 16h 18m 10s.xml">
+      <configuration name="TestRandomDaLeTou.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestRandom3D_getNum3d - 2019.09.08 at 22h 42m 59s.xml">
-      <configuration name="TestRandom3D.getNum3d" configurationId="JUnit" />
+    <history-entry file="TestRandomDaLeTou - 2019.11.29 at 16h 23m 00s.xml">
+      <configuration name="TestRandomDaLeTou" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestRandom3D_getNum3d - 2019.09.08 at 22h 43m 50s.xml">
-      <configuration name="TestRandom3D.getNum3d" configurationId="JUnit" />
+    <history-entry file="TestRandomDaLeTou - 2019.11.29 at 16h 29m 26s.xml">
+      <configuration name="TestRandomDaLeTou" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestRandom3D_getNum3d - 2019.09.08 at 22h 46m 21s.xml">
-      <configuration name="TestRandom3D.getNum3d" configurationId="JUnit" />
+    <history-entry file="TestRandomDaLeTou - 2019.11.29 at 16h 35m 08s.xml">
+      <configuration name="TestRandomDaLeTou" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestRandom3D_getNum3d - 2019.09.08 at 23h 02m 35s.xml">
-      <configuration name="TestRandom3D.getNum3d" configurationId="JUnit" />
+    <history-entry file="TestRandomDaLeTou - 2019.11.30 at 21h 55m 50s.xml">
+      <configuration name="TestRandomDaLeTou" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestRandom3D_getNum3d - 2019.09.08 at 23h 26m 30s.xml">
-      <configuration name="TestRandom3D.getNum3d" configurationId="JUnit" />
+    <history-entry file="TestRandomDaLeTou - 2019.11.30 at 21h 56m 57s.xml">
+      <configuration name="TestRandomDaLeTou" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestRandom3D_getNum3d - 2019.09.08 at 23h 27m 34s.xml">
-      <configuration name="TestRandom3D.getNum3d" configurationId="JUnit" />
+    <history-entry file="TestRandomDaLeTou - 2019.11.30 at 21h 59m 43s.xml">
+      <configuration name="TestRandomDaLeTou" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestRandom3D_getNum3d - 2019.09.08 at 23h 28m 09s.xml">
-      <configuration name="TestRandom3D.getNum3d" configurationId="JUnit" />
+    <history-entry file="TestRandomDaLeTou - 2019.12.02 at 19h 32m 17s.xml">
+      <configuration name="TestRandomDaLeTou" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestRandom3D_getNum3d - 2019.09.08 at 23h 30m 03s.xml">
-      <configuration name="TestRandom3D.getNum3d" configurationId="JUnit" />
+    <history-entry file="TestRandomDaLeTou - 2019.12.03 at 00h 57m 07s.xml">
+      <configuration name="TestRandomDaLeTou" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestRandomDaLeTou - 2019.09.09 at 01h 32m 25s.xml">
+    <history-entry file="TestRandomDaLeTou - 2019.12.03 at 01h 12m 42s.xml">
       <configuration name="TestRandomDaLeTou" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="251229000" />
+    <option name="totallyTimeSpent" value="515102000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -903,17 +863,18 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4987775" visible="true" weight="0.2677761" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4987775" visible="true" weight="0.39334342" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" sideWeight="0.5012225" side_tool="true" weight="0.34114978" />
+      <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.591133" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.40065682" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.31527093" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.45812806" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4977307" weight="0.32840723" />
@@ -923,28 +884,32 @@
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.36288998" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="11" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4977307" weight="0.32840723" />
+      <window_info anchor="bottom" id="Spring" order="13" />
+      <window_info anchor="bottom" id="Java Enterprise" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.24962178" />
-      <window_info anchor="right" id="Maven Projects" order="2" weight="0.32980332" />
+      <window_info anchor="right" id="Maven Projects" order="1" weight="0.32980332" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.24962178" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" weight="0.32980332" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4987775" visible="true" weight="0.2677761" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4987775" visible="true" weight="0.38880485" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" sideWeight="0.5012225" side_tool="true" weight="0.34114978" />
+      <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.4729064" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.40065682" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.31527093" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.45812806" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4977307" weight="0.32840723" />
@@ -954,15 +919,18 @@
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.36288998" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="11" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4977307" weight="0.32840723" />
+      <window_info anchor="bottom" id="Spring" order="13" />
+      <window_info anchor="bottom" id="Java Enterprise" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.24962178" />
-      <window_info anchor="right" id="Maven Projects" order="2" weight="0.32980332" />
+      <window_info anchor="right" id="Maven Projects" order="1" weight="0.32980332" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.24962178" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" weight="0.32980332" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1083,12 +1051,97 @@
     <MESSAGE value="all  commit" />
     <MESSAGE value="Revert &quot;all  commit&quot;&#10;&#10;This reverts commit 9d1d11a66b25f0e91f6a80902f5b279a0ec6237f." />
     <MESSAGE value="syc  QIU" />
-    <option name="LAST_COMMIT_MESSAGE" value="syc  QIU" />
+    <MESSAGE value="insert 3d,daletou sql support" />
+    <option name="LAST_COMMIT_MESSAGE" value="insert 3d,daletou sql support" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/test/yf/cp/BasicDaLeTou.java</url>
+          <line>328</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandomShuangSeQiu.java</url>
+          <line>125</line>
+          <properties />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/test/yf/cp/BasicShuangSeQiu.java</url>
+          <line>358</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/test/yf/cp/BasicShuangSeQiu.java</url>
+          <line>395</line>
+          <properties />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandomShuangSeQiu.java</url>
+          <line>122</line>
+          <properties />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandomShuangSeQiu.java</url>
+          <line>250</line>
+          <properties />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/test/yf/cp/BasicShuangSeQiu.java</url>
+          <line>189</line>
+          <properties />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandom3D.java</url>
+          <line>88</line>
+          <properties />
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandom3D.java</url>
+          <line>117</line>
+          <properties />
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandom3D.java</url>
+          <line>30</line>
+          <properties />
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandom3D.java</url>
+          <line>82</line>
+          <properties />
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandom3D.java</url>
+          <line>102</line>
+          <properties />
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandomDaLeTou.java</url>
+          <line>228</line>
+          <properties />
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
         <watch expression="mapperInterface.classLoader" />
+        <watch expression="i" />
+        <watch expression="i" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
@@ -1205,314 +1258,217 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/objects/fa/d56c818807b548eb765170bbae32ed0d7da92d" />
-    <entry file="file://$PROJECT_DIR$/objects/da/b145cbb08a52a7994d2a47160923c8b4185cb5" />
-    <entry file="file://$PROJECT_DIR$/other/e75cd6aa8790ed5a385aef20079b1d15a56fff3e" />
-    <entry file="file://$PROJECT_DIR$/other/d6ebd4805981b8400db3e3291c74a743fef9a824" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/PrivilegeMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        <state relative-caret-position="38">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/CountryMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/dao/UserDao.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/dao/BaseGetSqlSession.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.1.8.RELEASE/spring-boot-autoconfigure-2.1.8.RELEASE.jar!/org/springframework/boot/autoconfigure/EnableAutoConfiguration.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.9.RELEASE/spring-web-5.1.9.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.9.RELEASE/spring-webmvc-5.1.9.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="521" column="27" selection-start-line="521" selection-start-column="27" selection-end-line="521" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/springfox/springfox-spring-web/2.9.2/springfox-spring-web-2.9.2.jar!/springfox/documentation/spring/web/plugins/Docket.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="76" column="11" selection-start-line="76" selection-start-column="11" selection-end-line="76" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/springfox/springfox-core/2.9.2/springfox-core-2.9.2.jar!/springfox/documentation/builders/ApiInfoBuilder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="84" column="1" selection-start-line="84" selection-start-column="1" selection-end-line="88" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/CpdaleTou.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/tk/mybatis/simple/mapper/SysUserMapperTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/RolePrivilegeMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/UserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2071">
+          <caret line="109" column="19" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/CpshuangSeQiuMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/RoleMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="43" column="34" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/SwaggerConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/dao/daoImpl/BaseGetSqlSession.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/BaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/Cpselect5.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/CountryMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/service/CpdaletouService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/dao/daoImpl/DaletouImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/Cpselect5Mapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/controller/CpdaletouController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/dao/CpSelect5Dao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/dao/DaletouDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="14" column="1" selection-start-line="13" selection-start-column="4" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/dao/daoImpl/CpselectImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/service/CpSelect5Service.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tk/mybatis/simple/mapper/MyMapperProxy.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/service/serviceImpl/CpSelect5ServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="304">
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/java/src.zip!/java/lang/System.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/controller/CpSelect5Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="56" column="18" lean-forward="true" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
+        <state relative-caret-position="304">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/java/src.zip!/java/lang/ClassLoader.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/CpshuangSeQiuMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5567">
-          <caret line="356" selection-start-line="356" selection-end-line="356" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/jre/lib/rt.jar!/sun/misc/Launcher.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2774">
-          <caret line="179" selection-start-line="179" selection-end-line="179" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17727">
-          <caret line="988" selection-start-line="988" selection-end-line="988" />
-          <folding>
-            <element signature="e#62860#62861#0" expanded="true" />
-            <element signature="e#62916#62917#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/src.zip!/java/lang/Math.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23997">
-          <caret line="1335" selection-start-line="1335" selection-end-line="1335" />
-          <folding>
-            <element signature="e#52271#52272#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="82" column="26" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/Country.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/UserRoleMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/UserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/RoleMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/CpshuangSeQiuMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="65" selection-start-line="3" selection-start-column="65" selection-end-line="3" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/UserRoleMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/RoleMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="19" column="64" lean-forward="true" selection-start-line="19" selection-start-column="64" selection-end-line="19" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tk/mybatis/simple/mapper/PrivilegeMapperTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="11" column="43" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="43" />
+        <state relative-caret-position="285">
+          <caret line="20" column="71" selection-start-line="20" selection-start-column="71" selection-end-line="20" selection-end-column="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
+        <state relative-caret-position="532">
+          <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/BaseMapperTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/Cpselect5Mapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/src.zip!/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="434" selection-start-line="434" selection-end-line="434" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/CpshuangSeQiu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="e#203#204#0" expanded="true" />
-            <element signature="e#228#229#0" expanded="true" />
-            <element signature="e#262#263#0" expanded="true" />
-            <element signature="e#290#291#0" expanded="true" />
-            <element signature="e#325#326#0" expanded="true" />
-            <element signature="e#356#357#0" expanded="true" />
-            <element signature="e#404#405#0" expanded="true" />
-            <element signature="e#444#445#0" expanded="true" />
-            <element signature="e#514#515#0" expanded="true" />
-            <element signature="e#566#567#0" expanded="true" />
-            <element signature="e#610#611#0" expanded="true" />
-            <element signature="e#648#649#0" expanded="true" />
-            <element signature="e#682#683#0" expanded="true" />
-            <element signature="e#736#737#0" expanded="true" />
-            <element signature="e#782#783#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/tk/mybatis/simple/mapper/PrivilegeMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/tk/mybatis/simple/mapper/BaseMapperTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="13" column="49" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#783#784#0" expanded="true" />
-            <element signature="e#836#837#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/src.zip!/java/util/Arrays.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="143" column="29" selection-start-line="143" selection-start-column="29" selection-end-line="143" selection-end-column="29" />
-          <folding>
-            <element signature="e#5027#5028#0" expanded="true" />
-            <element signature="e#5098#5099#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/src.zip!/java/util/DualPivotQuicksort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="216" column="16" lean-forward="true" selection-start-line="216" selection-start-column="16" selection-end-line="216" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/testAc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="21" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/src.zip!/java/io/PrintStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="828" column="7" lean-forward="true" selection-start-line="828" selection-start-column="7" selection-end-line="828" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/BlockJUnit4ClassRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/ParentRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="226" column="16" selection-start-line="226" selection-start-column="16" selection-end-line="226" selection-end-column="16" />
-          <folding>
-            <element signature="e#2111#2112#0" expanded="true" />
-            <element signature="e#2155#2156#0" expanded="true" />
-            <element signature="e#5951#6086#0" expanded="true" />
-            <element signature="e#6085#6086#0" expanded="true" />
-            <element signature="e#6484#6648#0" expanded="true" />
-            <element signature="e#6647#6648#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/statements/InvokeMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/src.zip!/java/util/TreeMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="537" selection-start-line="537" selection-end-line="537" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/src.zip!/java/util/TreeSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="254" selection-start-line="254" selection-end-line="254" />
-          <folding>
-            <element signature="e#9710#9711#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/src.zip!/java/util/Set.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="224" column="12" selection-start-line="224" selection-start-column="12" selection-end-line="224" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/java/src.zip!/java/util/Collection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="286" column="46" lean-forward="true" selection-start-line="286" selection-start-column="46" selection-end-line="286" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandom3D.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="101" column="38" lean-forward="true" selection-start-line="101" selection-start-column="38" selection-end-line="101" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/Basic3D.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="106" column="35" selection-start-line="106" selection-start-column="35" selection-end-line="106" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="57">
+          <caret line="3" column="59" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -1523,79 +1479,125 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/model/CpdaleTou.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/service/serviceImpl/CpdaletouServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="30" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="30" />
+        <state relative-caret-position="190">
+          <caret line="17" column="73" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/java/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="3168" lean-forward="true" selection-start-line="3168" selection-end-line="3168" />
           <folding>
-            <element signature="e#198#199#0" expanded="true" />
-            <element signature="e#223#224#0" expanded="true" />
-            <element signature="e#257#258#0" expanded="true" />
-            <element signature="e#285#286#0" expanded="true" />
-            <element signature="e#320#321#0" expanded="true" />
-            <element signature="e#351#352#0" expanded="true" />
-            <element signature="e#399#400#0" expanded="true" />
-            <element signature="e#439#440#0" expanded="true" />
-            <element signature="e#476#477#0" expanded="true" />
-            <element signature="e#509#510#0" expanded="true" />
-            <element signature="e#561#562#0" expanded="true" />
-            <element signature="e#605#606#0" expanded="true" />
-            <element signature="e#643#644#0" expanded="true" />
-            <element signature="e#677#678#0" expanded="true" />
-            <element signature="e#731#732#0" expanded="true" />
-            <element signature="e#777#778#0" expanded="true" />
+            <element signature="e#117893#117894#0" expanded="true" />
+            <element signature="e#117955#117956#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/CpshuangSeQiuMapper.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+        <state relative-caret-position="247">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/jmeterTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandom3D.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="140" column="9" selection-start-line="126" selection-start-column="4" selection-end-line="140" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/tk/mybatis/simple/mapper/BaseMapperTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tk/mybatis/simple/mapper/CpdaleTouMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="76">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/BasicShuangSeQiu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="275" lean-forward="true" selection-start-line="252" selection-start-column="4" selection-end-line="275" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandomShuangSeQiu.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/Basic3D.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="521">
-          <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
+          <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/testDaBackendAc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/java/src.zip!/java/util/Arrays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="4577" column="7" selection-start-line="4577" selection-start-column="7" selection-end-line="4577" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/testAc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="403" column="18" selection-start-line="403" selection-start-column="18" selection-end-line="403" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="137" selection-start-line="137" selection-end-line="137" selection-end-column="76" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/BasicDaLeTou.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2136">
-          <caret line="102" column="22" lean-forward="true" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
+        <state relative-caret-position="407">
+          <caret line="420" column="5" lean-forward="true" selection-start-line="354" selection-end-line="420" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandomDaLeTou.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="96" column="45" lean-forward="true" selection-start-line="96" selection-start-column="45" selection-end-line="96" selection-end-column="45" />
+        <state relative-caret-position="186">
+          <caret line="92" column="19" selection-start-line="92" selection-start-column="19" selection-end-line="92" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/BasicShuangSeQiu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="444" column="26" lean-forward="true" selection-start-line="444" selection-start-column="26" selection-end-line="444" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/test/yf/cp/TestRandomShuangSeQiu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="125" column="272" selection-start-line="125" selection-start-column="272" selection-end-line="125" selection-end-column="272" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1608,7 +1610,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.47209302" />
               </list>
             </option>
           </splitter-proportions>
@@ -1616,7 +1618,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>No facets are configured</last-edited>
+          <last-edited>Spring</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1651,12 +1653,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>simple</last-edited>
+          <last-edited>Spring|simple</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.47209302" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -1668,7 +1669,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.47209302" />
               </list>
             </option>
           </splitter-proportions>

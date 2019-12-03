@@ -7,47 +7,47 @@ import java.util.*;
 public class Basic3D {
 
 
-    public  static final  int[]   HUNDREDNUM={ 1,2,3,4,5};  //百位待选数范围
+    public  static final  int[]   HUNDREDNUM={5};  //百位待选数范围
 
-    public static final   int[]  TENNUM={3,4,5,6,7,8,9};  //十位待选数范围
+    public static final   int[]  TENNUM={2,9};  //十位待选数范围
 
-    public static  final  int[] BITNUM={2,3,4,5,6,7};   //个位待选数范围
+    public static  final  int[] BITNUM={6,8};   //个位待选数范围
 
     //public  static final  int  GETNUM=3;    //取数个数
 
     public  static final  int  SUMSTART=10;   //和值开始
 
-    public static final int SUMEND=23;       //和值结束
+    public static final int SUMEND=17;       //和值结束
 
-    public static final int TAILSTART=4;       //和尾开始
+    public static final int TAILSTART=0;       //和尾开始
 
-    public static final int TAILEND=8;       //和尾结束
+    public static final int TAILEND=7;       //和尾结束
 
     public static final int ACSTART=0;       //AC开始
 
     public static final int ACEND=1;       //AC结束
 
-    public static final int KDSTART=2;       //跨度开始
+    public static final int KDSTART=3;       //跨度开始
 
-    public static final int KDEND=8;       //跨度结束
+    public static final int KDEND=9;       //跨度结束
 
     //奇偶比
-    public static final  String[] JUDEGANDODD={"0:3"};
+    public static final  String[] JUDEGANDODD={"0:3","3:0"};
 
     //大小比
-    public static final String[]  BIGANDSMALL={"1:2","0:3"};
+    public static final String[]  BIGANDSMALL={"3:0","0:3"};
 
     //质合
-    public static final String[] PRIMESUM={"1:2","0:3"};
+    public static final String[] PRIMESUM={"3:0","0:3"};
 
     //余3比
     public static final  String[] EXPECTED3={"0:0:0","1:1:1","2:2:2"};
 
     //平均值
-    public static  final  int[]  AVG={3,6};
+    public static  final  int[]  AVG={1,8};
 
     //余和
-    public static final int[]  EXDSUM={3,5};
+    public static final int[]  EXDSUM={2,5};
 
 
 //和值
@@ -255,6 +255,9 @@ public class Basic3D {
         result.put("余和",sum);
         return result;
     }
+
+
+
 
 
 }

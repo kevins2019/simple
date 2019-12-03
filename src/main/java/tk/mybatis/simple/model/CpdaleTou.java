@@ -1,6 +1,8 @@
 package tk.mybatis.simple.model;
 
-public class CpdaleTou {
+import java.io.Serializable;
+
+public class CpdaleTou  implements Serializable {
 
     private Long id;
     private String pahseNum;

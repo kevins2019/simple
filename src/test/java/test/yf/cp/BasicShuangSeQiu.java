@@ -1,5 +1,6 @@
 package test.yf.cp;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.ibatis.session.SqlSession;
 import tk.mybatis.simple.mapper.BaseMapperTest;
 import tk.mybatis.simple.mapper.CpshuangSeQiuMapper;
@@ -11,47 +12,62 @@ import java.util.*;
 
 public class BasicShuangSeQiu  extends BaseMapperTest {
 
-
-    public  static final  int[]   MULTIPLENUM={6,7,9,10,11,12,14,15,21,22,24,25,27,28,30};  //多个待选数范围
-
+                                                //4,5,8,13,14,18,19,22,24,26,27,31,32    15~16
+    public  static final  int[]   MULTIPLENUM={2,3,4,6,8,11,13,14,17,24,25,26,29};  //多个待选数范围
     public  static final  int  GETNUM=6;    //取数个数
 
-    public  static final  int  SUMSTART=81;   //和值开始
+    public  static final  int  SUMSTART=92;   //和值开始
 
-    public static final int SUMEND=107;       //和值结束
+    public static final int SUMEND=139;       //和值结束
 
-    public static final int TAILSTART=18;       //和尾开始
+    public static final int TAILSTART=15;       //和尾开始
 
-    public static final int TAILEND=27;       //和尾结束
+    public static final int TAILEND=25;       //和尾结束
 
     public static final int ACSTART=6;       //AC开始
 
-    public static final int ACEND=9;       //AC结束
+    public static final int ACEND=8;       //AC结束
 
-    public static final int SKIPSTART=22;       //跨度开始
+    public static final int SKIPSTART=19;       //跨度开始
 
-    public static final int SKIPEND=32;       //跨度结束
+    public static final int SKIPEND=29;       //跨度结束
 
-    public  static final  int ARVESTART=14;    //平均值开始
+    public static final  int[]  FIRSTKD={2,13};  //1~2kd,为空不参与筛选
 
-    public  static final  int ARVEEND=18;    //平均值结束
+    public  static final int[]  SECONDKD={1,8}; //2~3kd,为空不参与筛选
 
-    public  static final  int EXDSTART=3;    //余三和开始
+    public static final  int[]  THIRDKD={1,13};  //3~4kd,为空不参与筛选
 
-    public  static final  int EXDEND=6;    //余三和结束
+    public static final  int[]  FIVEKD={1,10};   //4~5kd,为空不参与筛选
+
+    public static final  int[]  SIXKD={1,10};   //4~5kd,为空不参与筛选
+
+    public  static final  int ARVESTART=16;    //平均值开始
+
+    public  static final  int ARVEEND=24;    //平均值结束
+
+    public  static final  int EXDSTART=4;    //余三和开始
+
+    public  static final  int EXDEND=9;    //余三和结束
+
+    public  static final  String APPOINT="";
+
+    public  static  final  String  OKAPPINT="";     //指定第几位数
+
+
 
     //奇偶比
-    public static  final String[]   JUDGEANDODD={"0:6","6:0","5:1","4:2"};   //奇偶比
+    public static  final String[]   JUDGEANDODD={"0:6","6:0","1:5","5:1"};   //奇偶比
 
     //大小比
-    public  static  final String[]  BIGANDSMALL={"0:6","1:5","5:1","4:2","6:0"};
+    public  static  final String[]  BIGANDSMALL={"0:6","1:5","5:1","6:0","2:4"};
 
     //质合比
-    public  static  final String[]  PRIMESUM={"0:6","5:1","4:2","6:0"};
+    public  static  final String[]  PRIMESUM={"0:6","5:1","6:0","4:2"};
 
     //除3余0、1、2比
-    public static final  String[]  EXPECTDELAY={"6:0:0","0:6:0","0:0:6","5:1:0","5:0:1","1:5:0","0:5:1","1:0:5","0:1:5",
-            "1:1:4","4:1:1","1:4:1","3:3:0",};
+    public static final  String[]  EXPECTDELAY={"6:0:0","0:6:0","0:0:6","5:1:0","5:0:1","1:5:0","1:0:5","0:1:5",
+            "1:1:4","4:1:1","1:4:1","4:2:0","4:0:2","2:4:0","0:4:2","2:0:4","3:0:3","0:2:4"};
 
 
     //七分区比
@@ -68,6 +84,66 @@ public class BasicShuangSeQiu  extends BaseMapperTest {
             "2:0:0:4:0:0:0","0:2:0:4:0:0:0","0:0:2:4:0:0:0","0:0:0:4:2:0:0","0:0:0:4:0:2:0","0:0:0:4:0:0:2",
             "2:0:0:0:4:0:0","0:2:0:0:4:0:0","0:0:2:0:4:0:0","0:0:0:2:4:0:0","0:0:0:0:4:2:0","0:0:0:0:4:0:2",
             "2:0:0:0:0:4:0","0:2:0:0:0:4:0","0:0:2:0:0:4:0","0:0:0:2:0:4:0","0:0:0:0:2:4:0","0:0:0:0:0:4:2",
+            "4:0:0:0:0:1:1", "4:0:0:0:1:0:1", "4:0:0:0:1:1:0", "4:0:0:1:0:0:1", "4:0:0:1:0:1:0", "4:0:0:1:1:0:0",
+            "4:0:1:0:0:0:1", "4:0:1:0:0:1:0", "4:0:1:0:1:0:0", "4:0:1:1:0:0:0", "4:1:0:0:0:0:1", "4:1:0:0:0:1:0",
+            "4:1:0:0:1:0:0",
+            "4:1:0:1:0:0:0",
+            "4:1:1:0:0:0:0",
+            "0:4:0:0:0:1:1",
+            "0:4:0:0:1:0:1",
+            "0:4:0:0:1:1:0",
+            "0:4:0:1:0:0:1",
+            "0:4:0:1:0:1:0",
+            "0:4:0:1:1:0:0",
+            "0:4:1:0:0:0:1",
+            "0:4:1:0:0:1:0",
+            "0:4:1:0:1:0:0",
+            "0:4:1:1:0:0:0",
+            "1:4:0:0:0:0:1",
+            "1:4:0:0:0:1:0",
+            "1:4:0:0:1:0:0",
+            "1:4:0:1:0:0:0",
+            "1:4:1:0:0:0:0",
+            "0:0:4:0:0:1:1",
+            "0:0:4:0:1:0:1",
+            "0:0:4:0:1:1:0",
+            "0:0:4:1:0:0:1",
+            "0:0:4:1:0:1:0",
+            "0:0:4:1:1:0:0",
+            "0:1:4:0:0:0:1",
+            "0:1:4:0:0:1:0",
+            "0:1:4:0:1:0:0",
+            "0:1:4:1:0:0:0",
+            "1:0:4:0:0:0:1",
+            "1:0:4:0:0:1:0",
+            "1:0:4:0:1:0:0",
+            "1:0:4:1:0:0:0",
+            "1:1:4:0:0:0:0",
+            "0:0:0:4:0:1:1",
+            "0:0:0:4:1:0:1",
+            "0:0:0:4:1:1:0",
+            "0:0:1:4:0:0:1",
+            "0:0:1:4:0:1:0",
+            "0:0:1:4:1:0:0",
+            "0:1:0:4:0:0:1",
+            "0:1:0:4:0:1:0",
+            "0:1:0:4:1:0:0",
+            "0:1:1:4:0:0:0",
+            "1:0:0:4:0:0:1",
+            "1:0:0:4:0:1:0",
+            "1:0:0:4:1:0:0",
+            "1:0:1:4:0:0:0",
+            "1:1:0:4:0:0:0",
+            "0:0:0:0:4:1:1",
+            "0:0:0:1:4:0:1",
+            "0:0:0:1:4:1:0",
+            "0:0:1:0:4:0:1",
+            "0:0:1:0:4:1:0",
+            "0:0:1:1:4:0:0",
+            "0:1:0:0:4:0:1", "0:1:0:0:4:1:0", "0:1:0:1:4:0:0", "0:1:1:0:4:0:0", "1:0:0:0:4:0:1", "1:0:0:0:4:1:0",
+            "1:0:0:1:4:0:0", "1:0:1:0:4:0:0", "1:1:0:0:4:0:0", "0:0:0:0:1:4:1", "0:0:0:1:0:4:1", "0:0:0:1:1:4:0",
+            "0:0:1:0:0:4:1", "0:0:1:0:1:4:0", "0:0:1:1:0:4:0", "0:1:0:0:0:4:1", "0:1:0:0:1:4:0", "0:1:0:1:0:4:0",
+            "0:1:1:0:0:4:0", "1:0:0:0:0:4:1", "1:0:0:0:1:4:0", "1:0:0:1:0:4:0", "1:0:1:0:0:4:0", "1:1:0:0:0:4:0",
             "3:3:0:0:0:0:0","3:0:3:0:0:0:0","3:0:0:3:0:0:0","3:0:0:0:3:0:0","3:0:0:0:0:3:0","3:0:0:0:0:0:3",
             "3:3:0:0:0:0:0","0:3:3:0:0:0:0","0:3:0:3:0:0:0","0:3:0:0:3:0:0","0:3:0:0:0:3:0","0:3:0:0:0:0:3",
             "3:0:3:0:0:0:0","0:3:3:0:0:0:0","0:0:3:3:0:0:0","0:0:3:0:3:0:0","0:0:3:0:0:3:0","0:0:3:0:0:0:3",
@@ -111,7 +187,7 @@ public class BasicShuangSeQiu  extends BaseMapperTest {
                 big++;
             }
         }
-        result.put("大小",small+":"+big);
+        result.put("大小",+big+":"+small);
         return result;
     }
 
@@ -262,8 +338,8 @@ public class BasicShuangSeQiu  extends BaseMapperTest {
              cpRed.add(cpshuangSeQiu.getRedLottery());
         }
         String sb= Arrays.toString(a).replace(" ","");
-
-        for(int i=0;i<cpRed.size();i++){
+        int n=cpRed.size();
+        for(int i=0;i<n;i++){
             String  source="["+cpRed.get(i)+"]";
             if(sb.equals(source)){
                 flag=false;
@@ -274,6 +350,187 @@ public class BasicShuangSeQiu  extends BaseMapperTest {
         return  flag;
     }
 
+    public   boolean  getOkNum(int[] temp,String str){
+          boolean flag=false;
+          if(!"".equals(str)){
+              int[]  tempNum=strArrayToInteger(str);
+              switch (tempNum.length){
+                  case 1:
+                      if(ArrayUtils.contains(temp,tempNum[0])){
+                          flag=true;
+                      }
+                      break;
+                  case 2:
+                      if(ArrayUtils.contains(temp,tempNum[0])&&ArrayUtils.contains(temp,tempNum[1])){
+                          flag=true;
+                      }
+                      break;
+                  case 3:
+                      if(ArrayUtils.contains(temp,tempNum[0])&&ArrayUtils.contains(temp,tempNum[1])&&ArrayUtils.contains(temp,tempNum[2])){
+                          flag=true;
+                      }
+                      break;
+                      default:
+                          break;
+
+              }
+
+          }else {
+              flag=true;
+          }
+
+
+
+
+
+        return   flag;
+    }
+
+    public  boolean  getLimitNum(int[] temp ,String str){
+        boolean flag=false;
+        if(!"".equals(str)){
+            int[]  limit=strArrayToInteger1(str);
+            int  bitNum=limit[limit.length-1]-1;
+            switch (limit.length){
+                case 2:
+                    if(temp[bitNum]==limit[0]){
+                        flag=true;
+                    }
+                    break;
+                case 3:
+                    if(temp[bitNum]==limit[0]||temp[bitNum]==limit[1]){
+                        flag=true;
+                    }
+                    break;
+                case 4:
+                    if(temp[bitNum]==limit[0]||temp[bitNum]==limit[1]||temp[bitNum]==limit[2]){
+                        flag=true;
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+        }else{
+            flag=true;
+        }
+        return  flag;
+    }
+
+
+    public   boolean   getFirstKD(int[] kd,int[] temp){
+        boolean flag=false;
+        Arrays.sort(temp);
+        int kv=temp[1]-temp[0];
+        if(kd.length==0){
+            flag=true;
+        }else{
+            if(kv>=kd[0]&&kv<=kd[1]){
+                flag=true;
+            }else{
+                flag=false;
+            }
+        }
+
+        return flag;
+    }
+    public   boolean   getSecondKD(int[] kd,int[] temp){
+        boolean flag=false;
+        Arrays.sort(temp);
+        int kv=temp[2]-temp[1];
+        if(kd.length==0){
+            flag=true;
+        }else{
+            if(kv>=kd[0]&&kv<=kd[1]){
+                flag=true;
+            }else{
+                flag=false;
+            }
+        }
+
+
+        return flag;
+    }
+    public   boolean   getThirdKD(int[] kd,int[] temp){
+        boolean flag=false;
+        Arrays.sort(temp);
+        int kv=temp[3]-temp[2];
+        if(kd.length==0){
+            flag=true;
+        }else{
+            if(kv>=kd[0]&&kv<=kd[1]){
+                flag=true;
+            }else{
+                flag=false;
+            }
+        }
+
+
+        return flag;
+    }
+    public   boolean   getFiveKD(int[] kd,int[] temp){
+        boolean flag=false;
+        Arrays.sort(temp);
+        int kv=temp[4]-temp[3];
+        if(kd.length==0){
+            flag=true;
+        }else{
+            if(kv>=kd[0]&&kv<=kd[1]){
+                flag=true;
+            }else{
+                flag=false;
+            }
+        }
+
+
+        return flag;
+    }
+
+    public   boolean   getSixKD(int[] kd,int[] temp){
+        boolean flag=false;
+        Arrays.sort(temp);
+        int kv=temp[5]-temp[4];
+        if(kd.length==0){
+            flag=true;
+        }else{
+            if(kv>=kd[0]&&kv<=kd[1]){
+                flag=true;
+            }else{
+                flag=false;
+            }
+        }
+
+
+        return flag;
+    }
+
+
+
+
+
+
+
+    public   int[]   strArrayToInteger(String s){
+        String[] a=s.replace(" ","").split(",");
+        int[]  sb=new int[a.length];
+        for (int i=0;i<sb.length;i++){
+            sb[i]=Integer.parseInt(a[i]);
+        }
+        Arrays.sort(sb);
+
+        return  sb;
+    }
+
+
+    public   int[]   strArrayToInteger1(String s){
+        String[] a=s.replace(" ","").split(",");
+        int[]  sb=new int[a.length];
+        for (int i=0;i<sb.length;i++){
+            sb[i]=Integer.parseInt(a[i]);
+        }
+
+        return  sb;
+    }
 
 
 }

@@ -18,6 +18,8 @@ public interface CpshuangSeQiuMapper {
             @Result(property = "buleLottery",column = "bule_lottery")
     }
     )
-    @Select("select * from cp_shuangseqiu")
+    @Select("select * from cp_shuangseqiu where  id  between 90 and 119")
     List<CpshuangSeQiu> selectAll();
+
+
 }

@@ -1,19 +1,39 @@
 package test.yf.cp;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.junit.Test;
 
 import java.io.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class TestRandomShuangSeQiu  extends BasicShuangSeQiu {
 
+
+
     @Test
     public  void  test() throws IOException{
 
+
+        long  startTime=System.currentTimeMillis();
         //int m = 6; // 待取出组合的个数
         TestRandomShuangSeQiu c = new TestRandomShuangSeQiu();
         List<int[]> list = c.testRandom(MULTIPLENUM, GETNUM);
+      //  List<int[]> list =new ArrayList<>();
+      //  list.add(new int[]{7,18,20,22,24,33});  测试中奖号是否筛选出
        int num= c.print(list);
+       long   endTime=System.currentTimeMillis();
+        DecimalFormat  df=new DecimalFormat("0.00");
+       BigDecimal  b1=new BigDecimal((endTime-startTime)+"");
+        BigDecimal  b2=new BigDecimal(1000*60+"");
+        df.format(b1);
+        df.format(b2);
+
+        BigDecimal  costTime=b1.divide(b2,0, RoundingMode.HALF_UP);
+
+        System.out.println("共花费时间:"+costTime);
         System.out.println("一共" + list.size() + "组!");
         System.out.println("一共筛选出" + num + "组!");
 
@@ -93,29 +113,36 @@ public class TestRandomShuangSeQiu  extends BasicShuangSeQiu {
         int  num=0;
         System.out.println("具体组合结果为:");
         for (int i = 0; i < list.size(); i++) {
-           // if(list.get(i).toString().equals("1,5,16,17,18,24")) {
-              int[]  temp = (int[]) list.get(i);
-            //int[]  temp ={1,5,16,17,18,24};
+            // if(list.get(i).toString().equals("1,5,16,17,18,24")) {
+           int[] temp = (int[]) list.get(i);
+            //int[]  temp ={7,18,20,22,24,33};
             //去除往期已开号码
 
             //各参数说明  -------和值范围(n,m)--和尾范围(x,y)--AC范围(z,w) --跨度(e,f) 排奇偶比、大小比、区比见方法里
 
-               if (getSumFlag(temp, SUMSTART, SUMEND, TAILSTART, TAILEND, ACSTART, ACEND, SKIPSTART, SKIPEND)) {
-                   boolean  bf=getCompareQiu(temp);
-                   if(bf) {
-                       for (int j = 0; j < temp.length; j++) {
-                           java.text.DecimalFormat df = new java.text.DecimalFormat("00");//将输出格式化
-                           System.out.print(df.format(temp[j]) + " ");
-                       }
-                       System.out.println();
-                       num++;
-                       String st1 = Arrays.toString(temp).replace("[", "");
-                       String parseTemp = st1.replace("]", "");
-                       saveTxt("D:\\cp.txt", parseTemp + "+6");
-                   }
-               }
-           }
+            if (getSumFlag(temp, SUMSTART, SUMEND, TAILSTART, TAILEND, ACSTART, ACEND, SKIPSTART, SKIPEND)) {
+                boolean bf = getCompareQiu(temp);
+                if (bf) {
+                    if (getLimitNum(temp,BasicShuangSeQiu.OKAPPINT)&&getFirstKD(BasicShuangSeQiu.FIRSTKD,temp)&&getSecondKD(BasicShuangSeQiu.SECONDKD,temp)&&getThirdKD(BasicShuangSeQiu.THIRDKD,temp)&&getFiveKD(BasicShuangSeQiu.FIVEKD,temp)&&getSixKD(BasicShuangSeQiu.SIXKD,temp)) {
+                        for (int j = 0; j < temp.length; j++) {
+                            java.text.DecimalFormat df = new java.text.DecimalFormat("00");//将输出格式化
+                            System.out.print(df.format(temp[j]) + " ");
+                        }
+                        System.out.println();
+                        num++;
+                        String st1 = Arrays.toString(temp).replace("[", "");
+                        String parseTemp = st1.replace("]", "");
+                        String bule = "+7";
+                        if (num % 5 == 0) {
+                            saveTxt("D:\\cp.txt", parseTemp + bule + "\r\n---------------");
+                        } else {
+                            saveTxt("D:\\cp.txt", parseTemp + bule);
+                        }
 
+                    }
+                }
+            }
+        }
 
         return  num;
     }

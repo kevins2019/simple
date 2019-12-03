@@ -13,9 +13,15 @@
             <transactionManager type="JDBC"></transactionManager>
             <dataSource type="UNPOOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+               <!--
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
                 <property name="url" value="jdbc:mysql://localhost:3306/mybatis?characterEncoding=UTF-8"/>
                 <property name="username" value="root"/>
                 <property name="password" value="123456"/>
+                 -->
+                <property name="url" value="jdbc:mysql://rm-m5e01hfgp8x585hu5io.mysql.rds.aliyuncs.com:3306/lottery?characterEncoding=UTF-8"/>
+                <property name="username" value="lottery"/>
+                <property name="password" value="Ycp&amp;2019"/>
             </dataSource>
         </environment>
     </environments>

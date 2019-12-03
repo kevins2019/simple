@@ -1,5 +1,6 @@
 package test.yf.cp;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.ibatis.session.SqlSession;
 import tk.mybatis.simple.mapper.BaseMapperTest;
 import tk.mybatis.simple.mapper.CpdaleTouMapper;
@@ -14,56 +15,81 @@ import java.util.*;
 public class BasicDaLeTou extends BaseMapperTest {
 
 
-    public  static final  int[]   MULTIPLENUM={ 3,4,6,7,9,10,12,18,23,26,27};  //多个待选数范围
-
+    public  static final  int[]   MULTIPLENUM={4,5,6,7,12,15,18,20,22,29};  //多个待选数范围
     public  static final  int  GETNUM=5;    //取数个数
 
-    public  static final  int  SUMSTART=56;   //和值开始
+    public  static final  int  SUMSTART=60;   //和值开始
 
-    public static final int SUMEND=112;       //和值结束
+    public static final int SUMEND=109;       //和值结束
 
-    public static final int TAILSTART=22;       //和尾开始
+    public static final int TAILSTART=19;       //和尾开始
 
-    public static final int TAILEND=30;       //和尾结束
+    public static final int TAILEND=31;       //和尾结束
 
     public static final int ACSTART=4;       //AC开始
 
     public static final int ACEND=6;       //AC结束
 
-    public static final int SKIPSTART=9;       //跨度开始
+    public static final int SKIPSTART=15;       //跨度开始
 
-    public static final int SKIPEND=24;       //跨度结束
+    public static final int SKIPEND=31;       //跨度结束
 
-    public  static final  int ARVESTART=10;    //平均值开始
+    public static final  int[]  FIRSTKD={2,13};  //1~2kd,为空不参与筛选
 
-    public  static final  int ARVEEND=22;    //平均值结束
+    public  static final int[]  SECONDKD={1,8}; //2~3kd,为空不参与筛选
 
-    public  static final  int EXDSTART=1;    //余三和开始
+    public static final  int[]  THIRDKD={1,13};  //3~4kd,为空不参与筛选
+
+    public static final  int[]  FIVEKD={1,10};   //4~5kd,为空不参与筛选
+
+    public  static final  int ARVESTART=12;    //平均值开始
+
+    public  static final  int ARVEEND=27;    //平均值结束
+
+    public  static final  int EXDSTART=3;    //余三和开始
 
     public  static final  int EXDEND=7;    //余三和结束
+
+    public  static final  String APPOINT="";   //每组必包含
+
+    public  static  final  String  OKAPPOINT3="";
+
+    public  static  final  String  OKAPPOINT="";  //最后一位表示指定第几位  eg:第五位   "29,32,5"
 
 
 
     //奇偶比
-    public static  final String[]   JUDGEANDODD={"0:5","1:4","4:1","5:0"};   //奇偶比
+    public static  final String[]   JUDGEANDODD={"0:5","5:0"};   //奇偶比
 
     //大小比
     public  static  final String[]  BIGANDSMALL={"0:5","5:0"};
 
     //质合比
-    public  static  final String[]  PRIMESUM={"0:5","4:1","5:0"};
+    public  static  final String[]  PRIMESUM={"0:5","5:0"};
 
     //除3余0、1、2比
-    public static final  String[]  EXPECTDELAY={"5:0:0","0:5:0","0:0:5","0:4:1","1:0:4","0:1:4"};
+    public static final  String[]  EXPECTDELAY={"5:0:0","0:5:0","0:0:5","4:0:1","4:1:0","0:4:1","1:4:0"};  //,"1:0:4","0:1:4"
 
 
     //五区比
-    public  static  final  String[] AREA={"5:0:0:0:0","0:5:0:0:0","0:0:5:0:0","0:0:0:5:0","0:0:0:0:5",
-            "4:1:0:0:0","4:0:1:0:0","4:0:0:1:0","4:0:0:0:1",
-            "1:4:0:0:0","0:4:1:0:0","0:4:0:1:0","0:4:0:0:1",
-            "1:0:4:0:0","0:1:4:0:0","0:0:4:1:0","0:0:4:0:1",
-            "1:0:0:4:0","0:1:0:4:0","0:0:1:4:0","0:0:0:4:1",
-            "1:0:0:0:4","0:1:0:0:4","0:0:1:0:4","0:0:0:1:4"};
+    public  static  final  String[] AREA={"5:0:0:0:0:0:0","0:5:0:0:0:0:0","0:0:5:0:0:0:0","0:0:0:5:0:0:0",
+            "0:0:0:0:5:0:0","0:0:0:0:0:5:0","0:0:0:0:0:0:5","0:0:0:0:0:5:0","0:0:0:0:0:0:5",
+            "4:1:0:0:0:0:0","4:0:1:0:0:0:0","4:0:0:1:0:0:0","4:0:0:0:1:0:0","4:0:0:0:0:1:0","4:0:0:0:0:0:1",
+            "1:4:0:0:0:0:0","0:4:1:0:0:0:0","0:4:0:1:0:0:0","0:4:0:0:1:0:0","0:4:0:0:0:1:0","0:4:0:0:0:0:1",
+            "1:0:4:0:0:0:0","0:1:4:0:0:0:0","0:0:4:1:0:0:0","0:0:4:0:1:0:0","0:0:4:0:0:1:0","0:0:4:0:0:0:1",
+            "1:0:0:4:0:0:0","0:1:0:4:0:0:0","0:0:1:4:0:0:0","0:0:0:4:1:0:0","0:0:0:4:0:1:0","0:0:0:4:0:0:1",
+            "1:0:0:0:4:0:0","0:1:0:0:4:0:0","0:0:1:0:4:0:0","0:0:0:1:4:0:0","0:0:0:0:4:1:0","0:0:0:0:4:0:1",
+            "1:0:0:0:0:4:0","0:1:0:0:0:4:0","0:0:1:0:0:4:0","0:0:0:1:0:4:0","0:0:0:0:1:4:0","0:0:0:0:0:4:1",
+            "1:0:0:0:0:0:4","0:1:0:0:0:0:4","0:0:1:0:0:0:4","0:0:0:1:0:0:4","0:0:0:0:1:0:4","0:0:0:0:0:1:4",
+            "3:2:0:0:0:0:0","3:0:2:0:0:0:0","3:0:0:2:0:0:0","3:0:0:0:2:0:0","3:0:0:0:0:2:0","3:0:0:0:0:0:2",
+            "2:3:0:0:0:0:0","0:3:2:0:0:0:0","0:3:0:2:0:0:0","0:3:0:0:2:0:0","0:3:0:0:0:2:0","0:3:0:0:0:0:2",
+            "2:0:3:0:0:0:0","0:2:3:0:0:0:0","0:0:3:2:0:0:0","0:0:3:0:2:0:0","0:0:3:0:0:2:0","0:0:3:0:0:0:2",
+            "2:0:0:3:0:0:0","0:2:0:3:0:0:0","0:0:2:3:0:0:0","0:0:0:3:2:0:0","0:0:0:3:0:2:0","0:0:0:3:0:0:2",
+            "2:0:0:0:3:0:0","0:2:0:0:3:0:0","0:0:2:0:3:0:0","0:0:0:2:3:0:0","0:0:0:0:3:2:0","0:0:0:0:3:0:2",
+            "2:0:0:0:0:3:0","0:2:0:0:0:3:0","0:0:2:0:0:3:0","0:0:0:2:0:3:0","0:0:0:0:2:3:0","0:0:0:0:0:3:2",
+            "2:0:0:0:0:0:3","0:2:0:0:0:0:3","0:0:2:0:0:0:3","0:0:0:2:0:0:3","0:0:0:0:2:0:3","0:0:0:0:0:2:3",
+            "2:2:1:0:0:0:0","2:2:0:1:0:0:0","2:2:0:0:1:0:0","2:2:0:0:0:1:0","2:2:0:0:0:0:1","1:0:0:0:0:2:2",
+            "0:1:0:0:0:2:2","0:0:1:0:0:2:2","0:0:0:1:0:2:2","0:0:0:0:1:2:2"};
 
 
     //获取奇偶比
@@ -99,7 +125,7 @@ public class BasicDaLeTou extends BaseMapperTest {
                 big++;
             }
         }
-        result.put("大小",small+":"+big);
+        result.put("大小",big+":"+small);
         return result;
     }
 
@@ -200,29 +226,38 @@ public class BasicDaLeTou extends BaseMapperTest {
     //区比
     public  static Map<String,String>  getArea(int[] a){
         Map<String,String>  resultCn=new HashMap<>();
-        int  firstArea=0;   //1~7
-        int  twoArea=0;     //二区8~14
-        int  threeArea=0;   //三区15~21
-        int  fourArea=0;    //四区22~28
-        int  fiveArea=0;    // 五区29~35
+        int  firstArea=0;   //1~5
+        int  twoArea=0;     //二区6~10
+        int  threeArea=0;   //三区11~15
+        int  fourArea=0;    //四区16~20
+        int  fiveArea=0;    // 五区21~25
+        int  sixArea=0;     //六区26~30
+        int  sevenArea=0;   //七区31~35
+
         for(int i=0;i<a.length;i++){
-            if(a[i]>0&&a[i]<=7){
+            if(a[i]>0&&a[i]<=5){
                 firstArea++;
             }
-            if(a[i]>7&&a[i]<=14){
+            if(a[i]>5&&a[i]<=10){
                 twoArea++;
             }
-            if(a[i]>14&&a[i]<=21){
+            if(a[i]>10&&a[i]<=15){
                 threeArea++;
             }
-            if(a[i]>21&&a[i]<=28){
+            if(a[i]>15&&a[i]<=20){
                 fourArea++;
             }
-            if(a[i]>28&&a[i]<=35){
+            if(a[i]>20&&a[i]<=25){
                 fiveArea++;
             }
+            if(a[i]>25&&a[i]<=30){
+                sixArea++;
+            }
+            if(a[i]>30&&a[i]<=35){
+                sevenArea++;
+            }
         }
-        resultCn.put("区比",firstArea+":"+twoArea+":"+threeArea+":"+fourArea+":"+fiveArea);
+        resultCn.put("区比",firstArea+":"+twoArea+":"+threeArea+":"+fourArea+":"+fiveArea+":"+sixArea+":"+sevenArea);
         return resultCn;
     }
 
@@ -250,7 +285,162 @@ public class BasicDaLeTou extends BaseMapperTest {
 
         return  flag;
     }
+    public   boolean  getOkNum(int[] temp,String str){
+        boolean flag=false;
+        if(!"".equals(str)){
+            int[]  tempNum=strArrayToInteger(str);
+            switch (tempNum.length){
+                case 1:
+                    if(ArrayUtils.contains(temp,tempNum[0])){
+                        flag=true;
+                    }
+                    break;
+                case 2:
+                    if(ArrayUtils.contains(temp,tempNum[0])&&ArrayUtils.contains(temp,tempNum[1])){
+                        flag=true;
+                    }
+                    break;
+                case 3:
+                    if(ArrayUtils.contains(temp,tempNum[0])&&ArrayUtils.contains(temp,tempNum[1])&&ArrayUtils.contains(temp,tempNum[2])){
+                        flag=true;
+                    }
+                    break;
+                default:
+                    break;
 
+            }
+
+        }else {
+            flag=true;
+        }
+
+
+
+
+
+        return   flag;
+    }
+
+    public  boolean  getLimitNum(int[] temp ,String str){
+        boolean flag=false;
+        if(!"".equals(str)){
+            int[]  limit=strArrayToInteger1(str);
+            int  bitNum=limit[limit.length-1]-1;
+            switch (limit.length){
+                case 2:
+                    if(temp[bitNum]==limit[0]){
+                       flag=true;
+                    }
+                    break;
+                case 3:
+                    if(temp[bitNum]==limit[0]||temp[bitNum]==limit[1]){
+                        flag=true;
+                    }
+                    break;
+                case 4:
+                    if(temp[bitNum]==limit[0]||temp[bitNum]==limit[1]||temp[bitNum]==limit[2]){
+                        flag=true;
+                    }
+                    break;
+                 default:
+                     break;
+            }
+
+        }else{
+            flag=true;
+        }
+        return  flag;
+    }
+
+public   boolean   getFirstKD(int[] kd,int[] temp){
+        boolean flag=false;
+        Arrays.sort(temp);
+    int kv=temp[1]-temp[0];
+        if(kd.length==0){
+            flag=true;
+        }else{
+            if(kv>=kd[0]&&kv<=kd[1]){
+               flag=true;
+            }else{
+                flag=false;
+            }
+        }
+
+        return flag;
+}
+    public   boolean   getSecondKD(int[] kd,int[] temp){
+        boolean flag=false;
+        Arrays.sort(temp);
+        int kv=temp[2]-temp[1];
+        if(kd.length==0){
+            flag=true;
+        }else{
+            if(kv>=kd[0]&&kv<=kd[1]){
+                flag=true;
+            }else{
+                flag=false;
+            }
+        }
+
+
+        return flag;
+    }
+    public   boolean   getThirdKD(int[] kd,int[] temp){
+        boolean flag=false;
+        Arrays.sort(temp);
+        int kv=temp[3]-temp[2];
+        if(kd.length==0){
+            flag=true;
+        }else{
+            if(kv>=kd[0]&&kv<=kd[1]){
+                flag=true;
+            }else{
+                flag=false;
+            }
+        }
+
+
+        return flag;
+    }
+    public   boolean   getFiveKD(int[] kd,int[] temp){
+        boolean flag=false;
+        Arrays.sort(temp);
+        int kv=temp[4]-temp[3];
+        if(kd.length==0){
+            flag=true;
+        }else{
+            if(kv>=kd[0]&&kv<=kd[1]){
+                flag=true;
+            }else{
+                flag=false;
+            }
+        }
+
+
+        return flag;
+    }
+
+    public   int[]   strArrayToInteger(String s){
+        String[] a=s.replace(" ","").split(",");
+        int[]  sb=new int[a.length];
+        for (int i=0;i<sb.length;i++){
+            sb[i]=Integer.parseInt(a[i]);
+        }
+        Arrays.sort(sb);
+
+        return  sb;
+    }
+
+
+    public   int[]   strArrayToInteger1(String s){
+        String[] a=s.replace(" ","").split(",");
+        int[]  sb=new int[a.length];
+        for (int i=0;i<sb.length;i++){
+            sb[i]=Integer.parseInt(a[i]);
+        }
+
+        return  sb;
+    }
 
 
 

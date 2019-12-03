@@ -76,16 +76,44 @@ create table test3(
 create  table cp_shuangseqiu(
 `id`  bigint  not null  auto_increment comment 'id',
 `pahseNum`  varchar(30) comment '第几期',
-`red_lottery`   varchar(10) comment   '红色球',
+`red_lottery`   varchar(30) comment   '红色球',
 `bule_lottery`  varchar(2)  comment  '蓝色球',
 primary key(`id`)
 );
 create  table  cp_daletou(
 `id` bigint not null  auto_increment  comment  'id',
 `pahseNum`  varchar(30) comment '第几期',
-`pro_lottery` varchar(10) comment '前区',
-`back_lettery`  varchar(2) comment  '后区',
+`pro_lottery` varchar(30) comment '前区',
+`back_lettery`  varchar(8) comment  '后区',
 primary  key(`id`)
+);
+
+create table cp_select5_daily(
+`id` bigint not null auto_increment comment 'id',
+`period` varchar(50) comment '期数',
+`win_num` varchar(50) comment '号码',
+`count_num` bigint(10) comment  '次数',
+primary  key(`id`)
+);
+
+create  table expert_data(
+`id`  bigint not null auto_increment comment 'id',
+`link`  varchar(255) comment '链接地址',
+primary key(`id`)
+);
+
+create table expert_data_detail(
+`id` bigint not null auto_increment comment 'id',
+`red25` varchar(255) comment  '红球25码',
+primary  key(`id`)
+);
+
+create  table expert_data_win_count(
+`id` bigint not null auto_increment comment 'id',
+`expert_name` varchar(50) comment '昵称',
+`win6` bigint(5) comment '中6',
+`win5` bigint(5) comment '中5',
+primary key(`id`)
 );
 
 
@@ -107,6 +135,7 @@ create table sys_role_privilege(
 );
 alter table sys_role_privilege comment  '角色权限关联表';
 
+alter table expert_data_detail  add `expert_name`  varchar(30) comment '昵称';
 
 
 insert into sys_user values ('1','admin','123456','1405202880@qq.com','管理员',null,'2019-08-22  06:19:30');
