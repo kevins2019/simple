@@ -20,8 +20,8 @@
                 <property name="password" value="123456"/>
                  -->
                 <property name="url" value="jdbc:mysql://rm-m5e01hfgp8x585hu5io.mysql.rds.aliyuncs.com:3306/lottery?characterEncoding=UTF-8"/>
-                <property name="username" value="lottery"/>
-                <property name="password" value="Ycp&amp;2019"/>
+                <property name="username" value="lotte"/>
+                <property name="password" value="Y2019"/>
             </dataSource>
         </environment>
     </environments>
